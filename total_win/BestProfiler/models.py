@@ -20,8 +20,7 @@ class OlympicsUsers(models.Model):
     user_id = models.IntegerField()
     score = models.IntegerField()
 
-
-
 class OtherAchievements(models.Model):
     description = models.TextField()
     theme = models.CharField(max_length=12)
+
