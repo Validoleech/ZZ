@@ -6,7 +6,7 @@ class Grades(models.Model):
     grade = models.IntegerField()
     date = models.DateTimeField()
     subject = models.CharField(max_length=12)
-    user_id = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Olympics(models.Model):
     id = models.IntegerField(primary_key=True)

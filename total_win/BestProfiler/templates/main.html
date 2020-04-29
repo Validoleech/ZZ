@@ -1,2 +1,5 @@
 <h1>Main page</h1>
 <a href="/logout">Выйти</a>
+{% for user in users %}
+    <a href="/user/{{user.id}}">{{user.username}}</a><br>
+{% endfor %}
