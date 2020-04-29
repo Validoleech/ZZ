@@ -15,4 +15,6 @@
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
+    {% if error != None %} <p style="color: red; text-align: center">{{ error }}</p> {% endif %}<br>
+    <a href="/login">Войти в существующий аккаунт</a>
 </form>

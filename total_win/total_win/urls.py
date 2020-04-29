@@ -17,7 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from BestProfiler import views
 
+from django.urls import include
+from django.urls import path
+from django.views.generic import RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', views.index),
+    path('login/', views.login_view),
+    path('logout/', views.logout_view),
+    path('register/', views.register_view),
+    path('main_page', views.mainpage_view)
 ]
