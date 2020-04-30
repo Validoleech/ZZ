@@ -9,11 +9,12 @@
         <th>Предмет</th>
         <th>Оценка</th>
     </tr>
-    {% for item in subjects %}
+    {% for item in perfomance %}
     <tr>
         <td>{{ item.subject }}</td>
-        <td>{{ item.perfomance }}</td>
-        <td>{{ item.grade }}</td>>
+        {% for ocenka in perfomance %}
+        <td> {% if ocenka.subject == item.subject%}{{ ocenka.grade }}</td>
+        {% endfor %}
     </tr>
     {% endfor %}
 </table>
