@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Вход
+    Создание аккаунта
 {% endblock %}
+
 
 {% block extended_content %}
     <div class="container">
@@ -10,10 +11,11 @@
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="card" style="border: 0">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Вход</h5>
+                        <h5 class="card-title text-center">Регистрация</h5>
 
                         {% if error != None %} <p style="color: red; text-align: center">{{ error }}</p> {% endif %}
 
+                        <!-- лень настраивать стили в forms.py, так что просто прописал всё тут -->
                         <form method="POST" class="mt-4">
                             {% csrf_token %}
 
@@ -26,8 +28,8 @@
                                     <input name="login" type="text" class="form-control" placeholder="Имя пользователя">
                                 </div>
 
-                                <small class="form-text text-muted">Используйте логин, который Вы указывали при
-                                    регистрации</small>
+                                <small class="form-text text-muted">Логин явялется уникальным индентификатором
+                                    пользователя</small>
                             </div>
 
                             <div class="form-group mb-2">
@@ -43,8 +45,22 @@
                                 <small class="form-text text-muted">Мы никому не сообщим Ваш пароль</small>
                             </div>
 
+                            <div class="form-group mb-2">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-key" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+
+                                    <input name="password_repeat" type="password" class="form-control"
+                                           placeholder="Повторите пароль">
+                                </div>
+
+                                <small class="form-text text-muted">Введите Ваш пароль ещё раз</small>
+                            </div>
+
                             <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-primary">Войти</button>
+                                <button type="submit" class="btn btn-primary">Создать аккаунт</button>
                             </div>
                         </form>
                     </div>
@@ -53,4 +69,3 @@
         </div>
     </div>
 {% endblock %}
-
