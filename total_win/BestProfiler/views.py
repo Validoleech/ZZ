@@ -144,11 +144,13 @@ def user_page_view(request, user_id):
     user = User.objects.get(pk=user_id)
 
     perf = Grades.objects.filter(user_id=user_id)
-
+    s=()
+    for i in perf:
+        s.add(i.subject)
     overall = direction(user_id)
 
     context['user'] = user
-
+    context['predmet']=s
     context["perfomance"] = perf
 
     context['overall'] = overall
