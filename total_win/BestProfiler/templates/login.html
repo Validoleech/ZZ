@@ -1,6 +1,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form }}
+    {% if error != None %} <p style="color: red; text-align: center">{{ error }}</p> {% endif %}<br>
     <input type="submit"><br>
     <a href="/register">Зарегестрироваться</a>
 </form>

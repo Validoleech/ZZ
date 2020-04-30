@@ -141,14 +141,20 @@ def direction(id):
 def user_page_view(request, user_id):
     context = {}
 
+    subjects = Grades.objects.all().order_by('-subject')
+
     user = User.objects.get(pk=user_id)
 
-    perf = Grades.objects.filter(user_id=user_id)
+    perf = Grades.objects.filter(user_id=user_id).filter(subject)
+
+    overall = direction(user_id)
+
+    context['subjects'] = subjects
 
     context['user'] = user
 
     context["perfomance"] = perf
 
-
+    context['overall'] = overall
 
     return render(request, 'user.html', context)

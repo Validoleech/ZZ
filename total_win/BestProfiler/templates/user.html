@@ -3,3 +3,18 @@
 {% for perf in perfomance %}
     {{perf.grade}}
 {% endfor %}
+
+<table>
+    <tr>
+        <th>Предмет</th>
+        <th>Оценка</th>
+    </tr>
+    {% for item in subjects %}
+    <tr>
+        <td>{{ item.subject }}</td>
+        <td>{{ item.perfomance }}</td>
+        <td>{{ item.grade }}</td>>
+    </tr>
+    {% endfor %}
+</table>
+<a >
