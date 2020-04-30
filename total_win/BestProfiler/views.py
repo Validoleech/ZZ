@@ -130,12 +130,17 @@ def login_view(request):  # Вход в систему
 
 def mainpage_view(request):
     context = {'menu': get_context_menu(request, HOME_PAGE_NAME)}
-
-    score, orientation = direction(user_id)
+    user = User.objects.all()
+    score = []
+    orientation = []
+    for i in range(len(user)):
+        score_tmp, orientation_tmp = direction(i)
+        score.append(score_tmp)
+        orientation.append(orientation_tmp)
+        print(orientation_tmp, score_tmp)
     context['score'] = score
     context['orientation'] = orientation
-
-    context = {"users": User.objects.all()}
+    context['users'] = user
     return render(request, 'main.html', context)
 
 

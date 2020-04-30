@@ -48,8 +48,8 @@ def get_context_left_menu(request, current_name):
     menu = [home_menu_item]
 
     if request.user.is_authenticated:
-        menu.append(main_menu_item)
-        menu.append(home_menu_item)
+        #menu.append(main_menu_item)
+        pass
     else:
         menu.append(login_menu_item)
         menu.append(register_menu_item)
