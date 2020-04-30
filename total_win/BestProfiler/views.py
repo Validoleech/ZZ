@@ -98,11 +98,14 @@ def logout_view(request):
 
 
 def AvgGrade(id, subject):
-    grade = Grades.object.filter(user_id=id).filter(subject=subject)
+    grade = Grades.objects.filter(user_id=id).filter(subject=subject)
     sum = 0
     for i in range(len(grade)):
         sum += grade[i].grade
-    return sum / len(grade)
+    if len(grade) != 0:
+        return sum / len(grade)
+    else:
+        return sum
 
 
 
@@ -144,7 +147,7 @@ def user_page_view(request, user_id):
     user = User.objects.get(pk=user_id)
 
     perf = Grades.objects.filter(user_id=user_id)
-    s=()
+    s=set()
     for i in perf:
         s.add(i.subject)
     overall = direction(user_id)

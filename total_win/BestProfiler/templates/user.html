@@ -1,4 +1,3 @@
-<h1>Это юзер!</h1>
 {{ user.username }}
 {% for perf in perfomance %}
     {{perf.grade}}
@@ -13,9 +12,8 @@
     <tr>
         <td>{{ item }}</td>
         {% for ocenka in perfomance %}
-        <td> {% if ocenka.subject == item%}{{ ocenka.grade }}</td>
+        <td> {% if ocenka.subject == item%}{{ ocenka.grade }}{% endif %}</td>
         {% endfor %}
     </tr>
     {% endfor %}
 </table>
-<a >
